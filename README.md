@@ -6,6 +6,10 @@
 
 A skill that turns a chat conversation into a markdown brief your coding agent can build from.
 
+[![Release](https://img.shields.io/github/v/release/Aaryan-Kapoor/coding-agent-handoff?color=D97757&label=release)](https://github.com/Aaryan-Kapoor/coding-agent-handoff/releases/latest)
+[![License: MIT](https://img.shields.io/badge/license-MIT-D97757)](LICENSE)
+[![Agent Skill](https://img.shields.io/badge/Agent%20Skill-claude.ai%20%C2%B7%20ChatGPT-555)](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
+
 </div>
 
 You plan in a chat (**claude.ai** / **ChatGPT**); you build in a coding agent (**Claude Code**, **Codex**, **Cursor**, …). This skill writes the conversation up as a self-contained brief — decisions, context, and next steps — that you save into your repo or paste into the agent. It carries what the chat knows and the agent can't see, and treats anything about your code as an assumption to verify rather than fact.
@@ -14,7 +18,7 @@ Both platforms use the [Agent Skills](https://www.anthropic.com/engineering/equi
 
 ## Install
 
-Download **[`coding-agent-handoff.zip`](https://github.com/Aaryan-Kapoor/coding-agent-handoff/raw/master/coding-agent-handoff.zip)**, then:
+Download **[`coding-agent-handoff.zip`](https://github.com/Aaryan-Kapoor/coding-agent-handoff/releases/latest/download/coding-agent-handoff.zip)**, then:
 
 - **claude.ai** — Sidebar -> Customize -> Skills -> "+" Add Skill -> Create skill -> Upload a skill -> select the zip.
 - **ChatGPT** — Skills → **New skill → Upload from your computer** → select the zip. *(Beta on Business/Enterprise/Edu; an admin may need to enable skill uploads.)*
