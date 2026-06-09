@@ -50,8 +50,9 @@
   <!-- skill running chip -->
   <g opacity="0">
     <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.17;0.22;0.30;0.34;1" dur="12s" repeatCount="indefinite"/>
-    <rect x="112" y="100" width="210" height="26" rx="13" fill="#FFFFFF" stroke="#D97757" stroke-width="1.5"/>
-    <text x="128" y="117" font-size="12.5" font-weight="700" fill="#C06A4B"><tspan fill="#E08A6B">&#10022; </tspan>coding-agent-handoff</text>
+    <ellipse cx="217" cy="197" rx="120" ry="24" fill="url(#glow)"/>
+    <rect x="112" y="184" width="210" height="26" rx="13" fill="#FFFFFF" stroke="#D97757" stroke-width="1.5"/>
+    <text x="128" y="201" font-size="12.5" font-weight="700" fill="#C06A4B"><tspan fill="#E08A6B">&#10022; </tspan>coding-agent-handoff</text>
   </g>
 
   <!-- input box with typed request -->
