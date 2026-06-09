@@ -21,7 +21,7 @@ Both platforms use the [Agent Skills](https://www.anthropic.com/engineering/equi
 Download **[`coding-agent-handoff.zip`](https://github.com/Aaryan-Kapoor/coding-agent-handoff/releases/latest/download/coding-agent-handoff.zip)**, then:
 
 - **claude.ai** — Sidebar -> Customize -> Skills -> "+" Add Skill -> Create skill -> Upload a skill -> select the zip.
-- **ChatGPT** — Skills → **New skill → Upload from your computer** → select the zip. *(Beta on Business/Enterprise/Edu; an admin may need to enable skill uploads.)*
+- **ChatGPT** — Skills → **New skill → Upload from your computer** → select the zip. *(Beta on Business/Enterprise/Edu; an admin may need to enable skill uploads.)*. Otherwise, upload SKILL.md directly in chat.
 - **Claude Code / Codex** — drop this folder into the tool's skills directory; no upload needed.
 
 Toggle it on, and you're set.
