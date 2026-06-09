@@ -1,56 +1,65 @@
 ---
-name: claude-code-handoff
+name: coding-agent-handoff
 description: >-
-  Package the current claude.ai conversation — a plan, implementation spec, research
+  Package the current chat conversation — a plan, implementation spec, research
   conclusion, bug investigation, or any scoped task — into a self-contained markdown
-  brief that Claude Code can pick up and execute in the user's repository. The brief
-  is produced as a downloadable artifact written for Claude Code as its reader: it
-  carries the decisions, research, and rationale from this chat (which Claude Code
-  cannot see), and tells Claude Code how to orient itself in the real codebase instead
-  of trusting file paths and assumptions that were never verified against actual files.
-  Use this whenever the user asks to hand this off to Claude Code, package or write this
-  up for Claude Code, turn the discussion into a task/spec/brief for Claude Code, "ship
-  this to Claude Code", or otherwise move work out of this conversation and into Claude
-  Code to implement.
+  brief that a coding agent (Claude Code, Codex, Cursor, or similar) can pick up and
+  execute in the user's repository. The brief is produced as a downloadable artifact /
+  file written for the coding agent as its reader: it carries the decisions, research,
+  and rationale from this chat (which the agent cannot see), and tells the agent how to
+  orient itself in the real codebase instead of trusting file paths and assumptions that
+  were never verified against actual files. Works the same on claude.ai and ChatGPT,
+  which both support the Agent Skills standard. Use this whenever the user asks to hand
+  this off to a coding agent / Claude Code / Codex / Cursor, package or write this up for
+  their coding agent, turn the discussion into a task/spec/brief for an agent to build,
+  "ship this to my coding agent", or otherwise move work out of this conversation and
+  into a coding tool to implement.
 ---
 
-# Claude Code Handoff
+# Coding Agent Handoff
 
 ## What this skill is for
 
-claude.ai is where the user thinks; Claude Code is where they build. Each side
-holds something the other lacks, and a good handoff moves exactly the right thing
-across the gap:
+A chat assistant (claude.ai, ChatGPT) is where the user thinks; a coding agent
+(Claude Code, Codex, Cursor, and the like) is where they build. Each side holds
+something the other lacks, and a good handoff moves exactly the right thing across
+the gap:
 
-- **This conversation** holds context Claude Code can't reconstruct — the decision
-  that was reached, the research that justified it, the alternatives that were
-  weighed and rejected, the API shape sketched out, the edge cases discussed, the
-  reasoning behind it all.
-- **Claude Code** holds something this chat never had: the actual repository — real
-  files, real structure, the ability to run `git status`, grep, and tests.
+- **This conversation** holds context the coding agent can't reconstruct — the
+  decision that was reached, the research that justified it, the alternatives that
+  were weighed and rejected, the API shape sketched out, the edge cases discussed,
+  the reasoning behind it all.
+- **The coding agent** holds something this chat never had: the actual repository —
+  real files, real structure, the ability to run `git status`, grep, and tests.
 
-The brief you produce transmits the first across the gap and tells Claude Code to
-go discover the second itself. Get this split right and the rest follows.
+The brief you produce transmits the first across the gap and tells the agent to go
+discover the second itself. Get this split right and the rest follows.
+
+This skill is deliberately agent-agnostic. Don't assume a specific tool, OS, or
+command set — write the brief so it's just as usable whether the user pastes it into
+Claude Code, Codex, Cursor, or anything else. Lean on what's universal (read the
+files, run the tests, follow existing conventions) rather than tool-specific flags.
 
 ## The principle that shapes everything: this chat is blind to the repo
 
 You cannot see the user's filesystem. Every claim about their codebase that came up
 in this conversation — a file path, a function name, "the code currently does X" —
 is a **hypothesis**, not a fact. It may be from memory, from an outdated paste, or
-from a reasonable guess. If the brief states these as fact, Claude Code will trust
-them, edit the wrong thing, or build on a mental model that doesn't match reality.
+from a reasonable guess. If the brief states these as fact, the coding agent will
+trust them, edit the wrong thing, or build on a mental model that doesn't match
+reality.
 
 So the single most important habit in this skill is to **separate what's
 authoritative from what needs verifying**:
 
 - **Authoritative** — what the user decided, what they want, the constraints they
-  chose, the research conclusions reached here. Claude Code should treat these as
+  chose, the research conclusions reached here. The agent should treat these as
   given.
 - **To be verified** — anything about where code lives or how it currently behaves.
-  Frame these as leads, and tell Claude Code to confirm them against real files
-  before acting.
+  Frame these as leads, and tell the agent to confirm them against real files before
+  acting.
 
-This is why the brief always opens by telling Claude Code to get its bearings first.
+This is why the brief always opens by telling the agent to get its bearings first.
 
 ## Before you write: a quick gather
 
@@ -64,20 +73,21 @@ be hollow. Mentally check you can answer:
 
 If one or two genuinely critical facts are missing — for instance you have no idea
 what stack the repo is or how tests are run — either ask the user a quick question
-or, better, hand it to Claude Code to discover ("find how this project runs its
-tests"). Discovery is exactly what Claude Code is good at, so prefer marking
+or, better, hand it to the agent to discover ("find how this project runs its
+tests"). Discovery is exactly what a coding agent is good at, so prefer marking
 something for discovery over blocking on a question. Don't stall a good handoff over
-details Claude Code can find in thirty seconds.
+details the agent can find in thirty seconds.
 
-## Produce the brief as an artifact
+## Produce the brief as an artifact / file
 
-Create the brief as a **markdown artifact** so the user can read it inline, download
-it as a file (to drop into their repo as e.g. `TASK.md`), or copy it. Title the
-artifact after the task. Use the structure below.
+Create the brief as a **markdown artifact or downloadable file** so the user can read
+it inline, save it into their repo (as e.g. `TASK.md`), or copy it. Title it after
+the task. Use the structure below.
 
-After creating it, tell the user in one line how to use it — both paths work:
-> Save it into your repo and tell Claude Code to read and implement it, or paste it
-> as your first message in a Claude Code session.
+After creating it, tell the user in one line how to use it — both paths work
+regardless of which agent they use:
+> Save it into your repo and tell your coding agent to read and implement it, or
+> paste it as your first message in a fresh agent session.
 
 ## Brief structure
 
@@ -89,9 +99,9 @@ Adapt.
 ```markdown
 # <Task title>
 
-> Handoff from a claude.ai conversation. Get your bearings in the actual codebase
-> before changing anything — the "where it lives" notes below are my best guess from
-> our discussion, not verified against your files. Confirm them first.
+> Handoff from a chat conversation. Get your bearings in the actual codebase before
+> changing anything — the "where it lives" notes below are my best guess from our
+> discussion, not verified against your files. Confirm them first.
 
 ## Goal
 <1–3 sentences a fresh reader understands. What does success look like?>
@@ -126,17 +136,19 @@ that renders the dashboard". Tell yourself to grep/read to confirm before touchi
 
 ## Quality bar
 
-A strong brief is one Claude Code can act on without ever seeing this chat:
+A strong brief is one the coding agent can act on without ever seeing this chat:
 
 - **It carries the why, not just the what.** "Build a rate limiter" is weak. "Build a
   rate limiter; we chose a token bucket over a fixed window because the user needs to
   allow short bursts — see the parameters we settled on below" is a handoff.
 - **It never fakes repo knowledge.** Leads are framed as leads. The orient-first
   instruction is always there. This is the difference between a brief that helps and
-  one that sends Claude Code confidently in the wrong direction.
+  one that sends the agent confidently in the wrong direction.
+- **It's agent-neutral.** No tool-specific assumptions. Anything about discovering or
+  running things is phrased so any coding agent in any repo can follow it.
 - **It's lean.** Distill the conversation, don't dump it. If a detail won't change
-  what Claude Code does, it probably doesn't belong.
-- **It closes the loop.** *Done when* tells Claude Code when to stop; *Open questions*
+  what the agent does, it probably doesn't belong.
+- **It closes the loop.** *Done when* tells the agent when to stop; *Open questions*
   tells it where to ask rather than guess.
 
 ## A quick contrast
